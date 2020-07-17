@@ -1,7 +1,12 @@
 # phisiocare
 
+preview: https://phisiocare.herokuapp.com/
 website para clinica de fisioterapia.
 Em construção.
+
+# media
+
+As imagens são temporarias e serão subtituidas depois por fotos da clinica.
 
 # tecnologias
 
