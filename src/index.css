@@ -1,0 +1,79 @@
+:root {
+  --color-primary: #38b8d4; /* cyan */
+  --color-secondary: #c2ade3; /* light purple */
+  --color-third: #31a3bc; /* darker teal */
+  --color-forth: #b2b2b2; /* medium gray */
+}
+
+body {
+  margin: 0;
+  font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  min-height: 100vh;
+  flex: 1 0 auto;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: white;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: grey;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+li {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding-inline-start: 0px;
+  margin: 0px;
+}
+
+/*universal style*/
+
+.padding-0 {
+  padding: 0px !important;
+}
+
+.row-after-none:after {
+  display: none !important;
+}
+
+.display-inline-table {
+  display: inline-table;
+}
+
+.flex-container {
+  display: flex;
+}
+
+@media (max-width: 600px) {
+  .center-on-small {
+    text-align: center !important;
+  }
+}

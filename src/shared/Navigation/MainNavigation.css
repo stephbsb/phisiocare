@@ -1,0 +1,10 @@
+.main-navigation-logo {
+  height: 45px;
+  padding-top: 10px;
+}
+
+@media (min-width: 601px) {
+  .main-navigation-logo {
+    height: 56px;
+  }
+}

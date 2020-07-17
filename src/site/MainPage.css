@@ -1,0 +1,9 @@
+.show-on-small-s {
+  display: block !important;
+}
+
+@media (min-width: 550px) {
+  .show-on-small-s {
+    display: none !important;
+  }
+}

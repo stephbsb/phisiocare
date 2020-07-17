@@ -1,0 +1,5 @@
+{
+  "emmet.showSuggestionsAsSnippets": true,
+  "editor.formatOnSave": true,
+  "emmet.triggerExpansionOnTab": true
+}

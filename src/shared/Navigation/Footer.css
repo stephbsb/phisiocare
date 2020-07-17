@@ -1,0 +1,30 @@
+.footer-copyright-small {
+  font-size: 12px;
+}
+
+.instagram-icon {
+  margin-right: 20px;
+}
+
+.icon-div {
+  width: 25px;
+  color: #616161;
+}
+
+.footer-logo {
+  width: 200px;
+  height: auto;
+}
+
+.adress-wrapper {
+  display: flex;
+}
+
+@media (min-width: 601) {
+  .footer-logo {
+    text-align: center;
+  }
+}
+
+@media (min-width: 990) {
+}

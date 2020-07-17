@@ -1,0 +1,16 @@
+.espaco-section {
+  padding-top: 30px;
+}
+
+.espaco-section h3 {
+  margin-bottom: 30px !important;
+}
+
+.carousel {
+  height: 320px !important;
+}
+
+.carousel-item {
+  width: 400px !important;
+  height: 300px !important;
+}
