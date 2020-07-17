@@ -24,7 +24,7 @@ const MainPage = (props) => {
         <EspacoSection />
         <ProfissionalSection />
         <ContatoSection />
-        <div className="show-on-small">
+        <div className="show-on-small-s">
           <div className="fixed-action-btn">
             <a
               className="btn-floating btn-large green pulse"
