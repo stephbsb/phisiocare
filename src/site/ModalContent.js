@@ -5,7 +5,7 @@ import "./ModalContent.css";
 const ModalContent = (props) => {
   if (props.id === "modal1") {
     return (
-      <div clasName="modal-content">
+      <div className="modal-content">
         <h4>Osteopatia</h4>
         <p>
           A OSTEOPATIA é um método de avaliação e tratamento que tem como

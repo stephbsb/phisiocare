@@ -4,12 +4,12 @@ import "./Slider.css";
 
 import img1 from "../img/slider/pilates2.jpg";
 import img2 from "../img/slider/osteopatia-entenda-o-que-e-e-que-doencas-trata.jpeg";
-import img3 from "../img/slider/leQuartier2.png";
+import img3 from "../img/espaco/vista_panoramica.jpg";
 
 class Slider extends Component {
   render() {
     return (
-      <section className="slider-style">
+      <section className="slider-style" id="home">
         <div className="slider">
           <ul className="slides">
             <li>

@@ -1,65 +1,98 @@
-import React, { useCallback, useReducer } from "react";
+import React, { useState, useEffect } from "react";
+import M from "materialize-css/dist/js/materialize.min.js";
 
 import "./ContatoSection.css";
+import { validate, VALIDATOR_EMAIL } from "../shared/Utils/validators";
 
-import Input from "../shared/FormElements/Input";
-import {
-  VALIDATOR_REQUIRE,
-  VALIDATOR_MINLENGTH,
-  VALIDATOR_EMAIL,
-} from "../shared/Utils/validators";
-
-const formReducer = (state, action) => {
-  switch (action.type) {
-    case "INPUT_CHANGE":
-      let formIsValid = true;
-      for (const inputId in state.inputs) {
-        if (inputId === action.inputId) {
-          formIsValid = formIsValid && action.isValid;
-        } else {
-          formIsValid = formIsValid && state.inputs[inputId].isValid;
-        }
-      }
-      return {
-        ...state,
-        input: {
-          ...state.inputs,
-          [action.inputId]: { value: action.value, isValid: action.isValid },
-        },
-        isValid: formIsValid,
-      };
-    default:
-      return state;
-  }
-};
-
-const ContatoSection = () => {
-  const [formState, dispatch] = useReducer(formReducer, {
-    inputs: {
-      nome: {
-        value: "",
-        isValid: false,
-      },
-      email: {
-        value: "",
-        isValid: false,
-      },
-      mensagem: {
-        value: "",
-        isValid: false,
-      },
-    },
+const ContatoSection = (props) => {
+  /* FORM VALIDATION */
+  const [inputs, setInputs] = useState({
+    nome: "",
+    email: "",
+    mensagem: "",
+    isNameValid: false,
+    isEmailValid: false,
+    isMessageValid: false,
     isValid: false,
   });
 
-  const inputHandler = useCallback((id, value, isValid) => {
-    dispatch({
-      type: "INPUT_CHANGE",
-      value: value,
-      isValid: isValid,
-      inputId: id,
-    });
-  }, []);
+  const onInputHandler = (event) => {
+    const valueLength = event.target.value.length;
+
+    const id = event.target.id;
+
+    if (id === "nome") {
+      const isNameValid = valueLength > 3;
+      setInputs({
+        ...inputs,
+        nome: event.target.value,
+        isNameValid: isNameValid,
+      });
+
+      if (isNameValid) {
+        event.target.className = "valid";
+      } else {
+        event.target.className = "invalid";
+      }
+    } else if (id === "email") {
+      const isEmailValid = validate(event.target.value, [VALIDATOR_EMAIL()]);
+
+      setInputs({
+        ...inputs,
+        email: event.target.value,
+        isEmailValid: isEmailValid,
+      });
+      if (isEmailValid) {
+        event.target.className = "valid";
+      } else {
+        event.target.className = "invalid";
+      }
+    } else {
+      const isMessageValid = valueLength >= 10;
+      setInputs({
+        ...inputs,
+        mensagem: event.target.value,
+        isMessageValid: isMessageValid,
+      });
+      if (isMessageValid) {
+        event.target.className = "materialize-textarea valid";
+      } else {
+        event.target.className = "materialize-textarea invalid";
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (inputs.isNameValid && inputs.isMessageValid && inputs.isEmailValid) {
+      setInputs({ ...inputs, isValid: true });
+    } else {
+      setInputs({ ...inputs, isValid: false });
+    }
+  }, [inputs.isNameValid, inputs.isEmailValid, inputs.isMessageValid]);
+
+  /* LOGIC TO SEND MESSAGE TO BACKEND AND SHOWING TOAST ON THE SCREEN */
+  const [messageSent, setMessageSent] = useState(false);
+
+  useEffect(() => {
+    if (messageSent) {
+      M.toast({ html: "Mensagem Enviada!" });
+      setInputs({
+        nome: "",
+        email: "",
+        mensagem: "",
+        isNameValid: false,
+        isEmailValid: false,
+        isMessageValid: false,
+        isValid: false,
+      });
+      setMessageSent(false);
+    }
+  }, [messageSent === true]);
+
+  const sendMessage = () => {
+    console.log("mensagem enviada");
+    setMessageSent(true);
+  };
 
   return (
     <section
@@ -72,43 +105,53 @@ const ContatoSection = () => {
             <div className="card-panel z-depth-5">
               <h5>Contate-nos</h5>
               <form>
-                <Input
-                  element="input"
-                  type="text"
-                  id="nome"
-                  placeholder="Nome"
-                  label="Nome"
-                  errorText="Nome inválido!"
-                  validators={[VALIDATOR_REQUIRE()]}
-                  onInput={inputHandler}
-                />
+                <div className="input-field">
+                  <input
+                    type="text"
+                    id="nome"
+                    placeholder="Nome"
+                    value={inputs.nome}
+                    onChange={onInputHandler}
+                  />
+                  <label for="nome">Nome</label>
+                  <span
+                    class="helper-text"
+                    data-error="O nome não pode ter menos que 3 caracteres!"
+                  ></span>
+                </div>
+                <div className="input-field">
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Email"
+                    value={inputs.email}
+                    onChange={onInputHandler}
+                  />
+                  <label for="email">Email</label>
+                  <span class="helper-text" data-error="Email Inválido!"></span>
+                </div>
 
-                <Input
-                  element="input"
-                  type="email"
-                  id="email"
-                  placeholder="Email"
-                  label="Email"
-                  errorText="Email inválido!"
-                  validators={[VALIDATOR_EMAIL()]}
-                  onInput={inputHandler}
-                />
-
-                <Input
-                  element="textarea"
-                  id="mensagem"
-                  placeholder="Mensagem"
-                  label="Mensagem"
-                  errorText="O texto nao pode ser menor que 10 caracteres!"
-                  validators={[VALIDATOR_MINLENGTH(10)]}
-                  onInput={inputHandler}
-                />
+                <div className="input-field">
+                  <textarea
+                    id="mensagem"
+                    className="materialize-textarea"
+                    placeholder="Mensagem"
+                    value={inputs.mensagem}
+                    onChange={onInputHandler}
+                  />
+                  <label for="mensagem">Mensagem</label>
+                  <span
+                    class="helper-text"
+                    data-error="A mensagem não pode conter menos de 10 caracteres!"
+                  ></span>
+                </div>
 
                 <input
+                  onClick={sendMessage}
                   type="submit"
-                  value="Enviar"
-                  disabled={!formState.isValid}
+                  disabled={!inputs.isValid}
                   className="btn cyan"
+                  value="Enviar"
                 />
               </form>
             </div>

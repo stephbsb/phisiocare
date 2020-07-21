@@ -14,17 +14,16 @@
 .footer-logo {
   width: 200px;
   height: auto;
+  transition: 0.5s;
+  margin-top: 21px;
 }
 
 .adress-wrapper {
   display: flex;
 }
 
-@media (min-width: 601) {
-  .footer-logo {
-    text-align: center;
+@media (max-width: 600px) {
+  .footer-logo img {
+    width: 100px;
   }
-}
-
-@media (min-width: 990) {
 }

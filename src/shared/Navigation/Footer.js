@@ -1,6 +1,6 @@
 import React from "react";
 
-import logo from "../../img/logo.png";
+import logo from "../../img/Logotipo_Phisiocare.svg";
 import "./Footer.css";
 
 const Footer = () => {
@@ -32,7 +32,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="col s6 m4 l3">
+          <div className="col s12 m4 l3">
             <h4>Siga-nos</h4>
             <a
               href="https://instagram.com/phisioc"
@@ -45,13 +45,13 @@ const Footer = () => {
               <i className="fa fa-facebook grey-text darken-2 medium"></i>
             </a>
           </div>
-          <div className="col s6 m8 l3">
-            <img src={logo} className="footer-logo right" />
+          <div className="col s12 m8 l3 center">
+            <img src={logo} className="footer-logo " />
           </div>
         </div>
       </div>
       <div className="footer-copyright footer-copyright-small">
-        <div className="container grey-text center ">
+        <div className="container grey-text center">
           Copyright © 2020 |{" "}
           <a
             className="grey-text"

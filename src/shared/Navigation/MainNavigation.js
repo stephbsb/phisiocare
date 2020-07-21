@@ -8,7 +8,7 @@ import "./MainNavigation.css";
 import MainHeader from "./MainHeader";
 import NavLinks from "./NavLinks";
 
-import logo from "../../img/logo_white.png";
+import logo from "../../img/Logotipo_branca.svg";
 
 class MainNavigation extends Component {
   componentDidMount() {
