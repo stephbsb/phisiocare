@@ -89,7 +89,8 @@ const ContatoSection = (props) => {
     }
   }, [messageSent === true]);
 
-  const sendMessage = () => {
+  const sendMessage = (event) => {
+    event.preventDefault();
     console.log("mensagem enviada");
     setMessageSent(true);
   };
@@ -104,7 +105,7 @@ const ContatoSection = (props) => {
           <div className="col s12 m12 l6 offset-l3">
             <div className="card-panel z-depth-5">
               <h5>Contate-nos</h5>
-              <form>
+              <form onSubmit={sendMessage}>
                 <div className="input-field">
                   <input
                     type="text"
@@ -115,7 +116,7 @@ const ContatoSection = (props) => {
                   />
                   <label for="nome">Nome</label>
                   <span
-                    class="helper-text"
+                    className="helper-text"
                     data-error="O nome não pode ter menos que 3 caracteres!"
                   ></span>
                 </div>
@@ -128,7 +129,10 @@ const ContatoSection = (props) => {
                     onChange={onInputHandler}
                   />
                   <label for="email">Email</label>
-                  <span class="helper-text" data-error="Email Inválido!"></span>
+                  <span
+                    className="helper-text"
+                    data-error="Email Inválido!"
+                  ></span>
                 </div>
 
                 <div className="input-field">
@@ -141,18 +145,18 @@ const ContatoSection = (props) => {
                   />
                   <label for="mensagem">Mensagem</label>
                   <span
-                    class="helper-text"
+                    className="helper-text"
                     data-error="A mensagem não pode conter menos de 10 caracteres!"
                   ></span>
                 </div>
 
-                <input
-                  onClick={sendMessage}
+                <button
                   type="submit"
                   disabled={!inputs.isValid}
                   className="btn cyan"
-                  value="Enviar"
-                />
+                >
+                  Enviar
+                </button>
               </form>
             </div>
           </div>
