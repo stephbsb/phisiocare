@@ -1,9 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 import MainPage from "./site/MainPage";
 import BlogPage from "./blog/BlogPage";
-
 
 const App = () => {
   return (
@@ -12,8 +16,11 @@ const App = () => {
         <Route path="/" exact>
           <MainPage type="site" />
         </Route>
-        <Route path="/blog">
+        {/* <Route path="/blog">
           <BlogPage type="blog" />
+        </Route> */}
+        <Route>
+          <Redirect to="/" />
         </Route>
       </Switch>
     </Router>

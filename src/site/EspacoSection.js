@@ -2,12 +2,12 @@ import React from "react";
 
 import "./EspacoSection.css";
 
-import img1 from "../img/espaco/img1.jpg";
-import img2 from "../img/espaco/img2.jpg";
-import img3 from "../img/espaco/img3.jpg";
-import img4 from "../img/espaco/img4.jpg";
-import img5 from "../img/espaco/img5.jpg";
-import img6 from "../img/espaco/img6.jpg";
+import img1 from "../img/espaco/img1.jpeg";
+import img2 from "../img/espaco/img2.jpeg";
+import img3 from "../img/espaco/img3.jpeg";
+import img4 from "../img/espaco/img4.jpeg";
+import img5 from "../img/espaco/img5.jpeg";
+import img6 from "../img/espaco/img6.jpeg";
 
 const EspacoSection = (props) => {
   return (

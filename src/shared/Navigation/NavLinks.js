@@ -30,11 +30,11 @@ const NavLinks = (props) => {
             CONTATO
           </a>
         </li>
-        <li>
+        {/* <li>
           <a className="sidenav-close" href="/blog">
             BLOG
           </a>
-        </li>
+        </li> */}
       </ul>
     );
   } else {
