@@ -122,7 +122,9 @@ const ContatoSection = (props) => {
 
       const responseData = await response.json();
 
-      console.log(responseData);
+      if (!responseData.ok) {
+        throw new Error("Something went wrong!");
+      }
 
       setIsLoading(false);
       setMessageSent(true);
