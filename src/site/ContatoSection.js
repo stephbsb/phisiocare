@@ -1,8 +1,12 @@
+/* NOTE: Refactor this code, is too long. Assign nome parts to other components */
+
 import React, { useState, useEffect } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 import "./ContatoSection.css";
 import { validate, VALIDATOR_EMAIL } from "../shared/Utils/validators";
+import LoadingSpiner from "../shared/Components/LoadingSpiner";
+import LoadingSpinner from "../shared/Components/LoadingSpiner";
 
 const ContatoSection = (props) => {
   /* FORM VALIDATION */
@@ -70,8 +74,10 @@ const ContatoSection = (props) => {
     }
   }, [inputs.isNameValid, inputs.isEmailValid, inputs.isMessageValid]);
 
-  /* LOGIC TO SEND MESSAGE TO BACKEND AND SHOWING TOAST ON THE SCREEN */
+  /* LOGIC TO SEND MESSAGE TO BACKEND AND SHOWING ERROR OR SUCCESS DELIVERY */
   const [messageSent, setMessageSent] = useState(false);
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (messageSent) {
@@ -87,12 +93,44 @@ const ContatoSection = (props) => {
       });
       setMessageSent(false);
     }
-  }, [messageSent === true]);
 
-  const sendMessage = (event) => {
+    if (error) {
+      M.toast({ html: error });
+      setError(null);
+    }
+  }, [messageSent, error]);
+
+  const sendMessage = async (event) => {
     event.preventDefault();
-    console.log("mensagem enviada");
-    setMessageSent(true);
+
+    try {
+      setIsLoading(true);
+      const response = await fetch(
+        "http://localhost:5000/api/message/newmessage",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nome: inputs.nome,
+            email: inputs.email,
+            mensagem: inputs.mensagem,
+          }),
+        }
+      );
+
+      const responseData = await response.json();
+
+      console.log(responseData);
+
+      setIsLoading(false);
+      setMessageSent(true);
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false);
+      setError("Algo deu errado, tente novamente.");
+    }
   };
 
   return (
@@ -153,9 +191,9 @@ const ContatoSection = (props) => {
                 <button
                   type="submit"
                   disabled={!inputs.isValid}
-                  className="btn cyan"
+                  className="btn cyan form-button"
                 >
-                  Enviar
+                  {isLoading ? <LoadingSpinner /> : "Enviar"}
                 </button>
               </form>
             </div>

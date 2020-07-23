@@ -5,3 +5,18 @@
 .contato-section .input-field {
   margin: 30px 0px;
 }
+
+.form-button {
+  width: 100px !important;
+  height: 40px !important;
+}
+
+@media (min-width: 993px) {
+  #toast-container {
+    width: 50%;
+    bottom: 10%;
+    top: 80%;
+    right: 25%;
+    text-align: center;
+  }
+}
