@@ -106,7 +106,7 @@ const ContatoSection = (props) => {
     try {
       setIsLoading(true);
       const response = await fetch(
-        "http://localhost:5000/api/message/newmessage",
+        process.env.REACT_APP_API_URL.concat("api/message/newmessage"),
         {
           method: "POST",
           headers: {
@@ -122,7 +122,7 @@ const ContatoSection = (props) => {
 
       const responseData = await response.json();
 
-      if (!responseData.ok) {
+      if (!response.ok) {
         throw new Error("Something went wrong!");
       }
 
