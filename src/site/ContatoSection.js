@@ -106,7 +106,7 @@ const ContatoSection = (props) => {
     try {
       setIsLoading(true);
       const response = await fetch(
-        process.env.REACT_APP_API_URL.concat("api/message/newmessage"),
+        process.env.REACT_APP_API_URL.concat("/api/message/newmessage"),
         {
           method: "POST",
           headers: {
