@@ -6,3 +6,9 @@
 .profissional-section img {
   max-width: 200px !important;
 }
+
+.profissional-section li {
+  margin-left: 20px;
+  list-style: disc !important;
+  line-height: 25px;
+}
