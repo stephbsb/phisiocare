@@ -1,20 +1,24 @@
 # phisiocare
 
-preview: https://phisiocare.herokuapp.com/
+Este é um website responsivo para uma clínica de fisioterapia. Uma landing page contendo informações sobre localização, modalidade, espaço e a profissional responsável.
+
+preview: https://phisiocare.herokuapp.com/</br>
 backend: https://github.com/stephbsb/phisiocarebackend
-website para clinica de fisioterapia.
+
 Em construção.
 
 # media
 
-As imagens são temporarias e serão subtituidas depois por fotos da clinica.
+As imagens são temporárias e estão sendo subtituídas por fotos da clinica.
 
 # tecnologias
 
-Este site é desenvolvido usando a biblioteca React e a biblioteca Materialize para alguns estilos.
+Este site é desenvolvido usando:
+- ReactJS
+- MaterializeCSS
 
 # o que falta
 
-- corrigir overflow da pagina em mobile.
-- corrigir o envio de formulario de contato que ainda nao funciona.
-- criar o blog
+- substituir algumas imagens e colocar o backend em produção.
+- será adicionado futuramente uso da API do google para mostrar a localização da unidade no mapa atrás do formulário de contato.
+- futuramente será adicionado uma sessão de blog para postagem de conteúdo relacionado as tecnicas utilizadas na clínica.
