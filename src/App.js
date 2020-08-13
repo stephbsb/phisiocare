@@ -1,26 +1,25 @@
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import MainPage from "./site/MainPage";
-import BlogPage from "./blog/BlogPage";
+import MainPage from './site/MainPage';
 
 const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
-          <MainPage type="site" />
+        <Route path='/' exact>
+          <MainPage type='site' />
         </Route>
         {/* <Route path="/blog">
           <BlogPage type="blog" />
         </Route> */}
         <Route>
-          <Redirect to="/" />
+          <Redirect to='/' />
         </Route>
       </Switch>
     </Router>
