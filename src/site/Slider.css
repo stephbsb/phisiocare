@@ -1,3 +1,15 @@
 .slider .indicators .indicator-item.active {
   background-color: #057d92;
 }
+
+.slider h3 {
+  margin-top: 20%;
+  transition: 0.2s;
+}
+
+@media (max-width: 500px) {
+  .slider h3 {
+    margin-top: 70%;
+    transition: 0.2s;
+  }
+}

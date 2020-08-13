@@ -15,7 +15,7 @@ class Slider extends Component {
             <li>
               <img src={img1} />
               <div className='caption left-align'>
-                <h2>Estamos Funcionando!</h2>
+                <h3>Estamos Funcionando!</h3>
                 <h5 className='light grey-text text-lighten-3 '>
                   Nova clinica de pilates em Águas Claras.
                 </h5>
@@ -24,7 +24,7 @@ class Slider extends Component {
             <li>
               <img src={img2} />
               <div className='caption right-align'>
-                <h2>Osteopatia</h2>
+                <h3>Osteopatia</h3>
                 <h5 className='light grey-text text-lighten-3 '>
                   Entre outras técnicas de fisioterapia.
                 </h5>
@@ -33,7 +33,7 @@ class Slider extends Component {
             <li>
               <img src={img3} />
               <div className='caption left-align'>
-                <h2>Águas Claras</h2>
+                <h3>Águas Claras</h3>
                 <h5 className='light grey-text text-lighten-3 '>
                   Próximo à estação de metrô Águas Claras.
                 </h5>

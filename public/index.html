@@ -19,10 +19,16 @@
     />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#38b8d4" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Clínica de Fisioterapia especializada em Pilates, Osteopatia, Método McKenzie, RPG e Liberação Miofascial. Localizado em Águas Claras próximo ao metrô"
+      .
+    />
+    <meta
+      property="og:image"
+      itemprop="image"
+      content="%PUBLIC_URL%/assets/miniature.png"
     />
     <link
       rel="stylesheet"
@@ -60,18 +66,18 @@
     <script>
       $(document).ready(function () {
         // Initialize Slider:
-        $(".slider").slider({ height: 500 });
+        $('.slider').slider({ height: 500 });
 
-        $(".scrollspy").scrollSpy({
+        $('.scrollspy').scrollSpy({
           scrollOffset: 100,
         });
 
         // Initialize Carousel
-        $(".carousel").carousel({ indicators: true });
+        $('.carousel').carousel({ indicators: true });
 
         // Initialize Modals:
-        $(".modal").modal();
-        $(".modal-trigger").leanModal({
+        $('.modal').modal();
+        $('.modal-trigger').leanModal({
           dismissible: true, // Modal can be dismissed by clicking outside of the modal
         });
       });
