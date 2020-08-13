@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './Slider.css';
 
-import img1 from '../img/slider/pilates2.jpg';
+import img1 from '../img/slider/pilates2.png';
 import img2 from '../img/slider/osteopatia-entenda-o-que-e-e-que-doencas-trata.jpeg';
 import img3 from '../img/espaco/vista_panoramica.jpg';
 
