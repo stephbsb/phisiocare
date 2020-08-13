@@ -2,7 +2,7 @@ import React from 'react';
 
 import './ProfissionalSection.css';
 
-import foto from '../img/perfil.jpg';
+import foto from '../img/pamella.jpeg';
 
 const ProfissionalSection = () => {
   return (
