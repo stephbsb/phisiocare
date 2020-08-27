@@ -2,7 +2,7 @@
 
 Este é um website responsivo para uma clínica de fisioterapia. Uma landing page contendo informações sobre localização, modalidade, espaço e a profissional responsável.
 
-preview: https://phisiocare.herokuapp.com/</br>
+versao publicada com gastby(repositório privado): https://phisiocare.com.br/</br> 
 backend: https://github.com/stephbsb/phisiocarebackend
 
 Em construção.
